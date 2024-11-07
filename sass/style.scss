@@ -1,0 +1,305 @@
+// Fonts var
+$fonts: "Bitter", "Noto Serif SC", "Noto Serif JP", serif;
+$time-fonts: "Kode Mono", monospace;
+$mono-fonts: "Fira Code", "Noto Sans SC", "Noto Sans JP", monospace;
+
+// Color var
+$text-color: #2d2d2d;
+$text-sub-color: #666666;
+$accent-color: maroon;
+$background-color: #faf5f2;
+
+$code-background-color: rgba(142, 114, 114, 0.04);
+$code-border-color: rgba(173, 171, 108, 0.2);
+
+$divider-color: #c6c6c6;
+
+// Core
+html,
+body {
+	background: $background-color;
+	color: $text-color;
+	font: 16px/1.5 $fonts;
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+	text-underline-offset: 0.25rem;
+}
+
+a:hover {
+	color: $accent-color;
+}
+
+main {
+	margin: auto;
+	max-width: 44rem;
+	padding: 0.8rem;
+}
+
+code {
+	font-family: $mono-fonts;
+	font-size: 0.93rem;
+	letter-spacing: -0.03rem;
+	background-color: $code-background-color;
+	border: 1px solid $code-border-color;
+	border-radius: 3px;
+	padding: 1px 5px;
+	display: inline-block;
+	margin: 0 3px;
+	line-height: 1rem;
+}
+
+pre {
+	background-color: $code-background-color;
+	border: 1px solid $code-border-color;
+	border-radius: 10px;
+	padding: 0.7rem 1rem;
+	overflow: scroll;
+}
+
+pre code {
+	all: unset;
+	font-family: $mono-fonts;
+	letter-spacing: -0.04rem;
+}
+
+td {
+	border: 1px solid $text-color;
+	padding: 10px;
+}
+
+img {
+	display: block;
+	max-width: 95%;
+	height: auto;
+	margin: auto;
+}
+
+time {
+	font-optical-sizing: auto;
+	font-family: $time-fonts;
+	letter-spacing: -0.04em;
+}
+
+sup {
+	font-size: 0.75rem;
+}
+
+blockquote {
+	border-left: 3px double $divider-color;
+	margin: unset;
+	padding-left: 1rem;
+}
+
+hr {
+	border: none;
+	border-top: dashed 2px $divider-color;
+}
+
+ul,
+ol {
+	padding-left: 1.2rem;
+}
+
+// Homepage
+.header-site-title {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.header-site-title a {
+	font-family: rock salt;
+	font-size: smaller;
+	text-decoration: none;
+	color: inherit;
+}
+
+.header-site-description {
+	margin: auto;
+	margin-bottom: 0.5rem;
+}
+
+.header-site-nav {
+	font-size: 0.8rem;
+}
+
+.content {
+	border-top: double 5px $text-color;
+	border-bottom: double 5px $text-color;
+	margin: 0.5rem 0;
+	padding: 0.7rem 0.5rem 0 0.5rem;
+}
+
+.year-title {
+	border-bottom: solid 1px;
+	margin: 0;
+}
+
+.post-list {
+	list-style: none;
+	padding: 0 0;
+}
+
+.post-list li {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.post-list li time {
+	font-size: 0.9rem;
+}
+
+.post-list sup {
+	font-family: $time-fonts;
+	font-size: 0.7em;
+	font-weight: bolder;
+	letter-spacing: -0.04em;
+}
+
+@media (max-width: 38rem) {
+	.post-list li a {
+		width: 100%;
+	}
+}
+
+.site-footer {
+	font-size: smaller;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+// Single page
+.page-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 1.8rem;
+}
+
+.page-title sup {
+	font-family: $time-fonts;
+	font-size: 0.5em;
+	letter-spacing: -0.04em;
+}
+
+.page-title a {
+	text-decoration: unset;
+	color: $text-color;
+}
+
+.page-front {
+	color: $text-sub-color;
+	font-size: 0.85rem;
+}
+
+.page-front-description {
+	font-style: italic;
+}
+
+.page-divider {
+	border-top: dotted 2px $divider-color;
+	margin: 0.6rem 0 0.3rem 0;
+	width: 50%;
+}
+
+.page-front-date {
+	font-size: 0.7rem;
+	margin-top: -0.2rem;
+}
+
+.page-front-date time {
+	font-size: 0.75rem;
+}
+
+.page-front-date-raquo {
+	margin: 0 3px 0 4px;
+}
+
+.page-front-aux {
+	font-size: 0.7rem;
+}
+
+.page-front-dot {
+	margin: 0 2px 0 2px;
+}
+
+// Set a menu buttom
+#page-front-toc {
+	display: none;
+	text-align: left;
+	color: $text-sub-color;
+	background-color: $code-background-color;
+	border: 1px solid $code-border-color;
+	border-radius: 10px;
+	padding: 0 1rem 0.3rem 1rem;
+	margin-top: 1rem;
+	overflow: scroll;
+}
+
+#toc-toggle {
+	display: none;
+}
+
+#toc-toggle:checked + #page-front-toc {
+	display: block;
+}
+
+.toc-button {
+	cursor: pointer;
+	text-decoration: underline;
+	text-underline-offset: 0.25rem;
+}
+
+.toc-button:hover {
+	color: $accent-color;
+}
+
+.page-foot {
+	color: $text-sub-color;
+	font-size: 0.85rem;
+	margin-top: 2rem;
+	margin-bottom: 0.4rem;
+}
+
+.page-foot div {
+	padding-left: 0.2rem;
+}
+
+#img-404 {
+	display: block;
+	max-width: 95%;
+	height: auto;
+	margin: auto;
+	margin-top: 1rem;
+}
+
+a.zola-anchor {
+	font-weight: lighter;
+	font-size: smaller;
+	color: darkgray;
+	text-decoration: none;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.footnote-definition {
+	font-size: 0.8rem;
+	margin-top: 0.8rem;
+	display: flex;
+}
+
+.footnote-definition-label {
+	font-size: 0.8em;
+	margin-right: 0.8rem;
+	margin-left: 0.2rem;
+}
+
+.footnote-definition p {
+	margin: 0;
+}

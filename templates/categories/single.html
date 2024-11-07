@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block title %}
+  {{ term.name }} &middot; {{ config.title }}
+{% endblock title %}
+{% block ogtitle %}
+  分类：{{ term.name }}
+{% endblock ogtitle %}
+{% block ogdesc %}
+  {{ term.name }}
+{% endblock ogdesc %}
+{% block ogurl %}
+  {{ term.permalink | safe }}
+{% endblock ogurl %}
+{% block ogimage -%}
+  {%- if config.extra.ogimage -%}{{ get_url(path=config.extra.ogimage) | safe }}{%- endif -%}
+  {%- endblock ogimage %}
+  {% block content %}
+    <h1 class="page-title">
+      {{ term.name }}<sup>({{ term.page_count }})</sup>
+    </h1>
+    <hr class="page-divider" />
+    <ul class="post-list">
+      {% for page in term.pages %}{{ macros::post_in_list(post=page) }}{% endfor %}
+    </ul>
+  {% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block title %}
+  分类 &middot; {{ config.title }}
+{% endblock title %}
+{% block ogtitle %}
+  分类页
+{% endblock ogtitle %}
+{% block ogdesc %}
+  {% for term in terms %}
+    {{ term.name }}
+    {% if loop.last %}
+    {% else %}
+      <span>&middot;</span>
+    {% endif %}
+  {% endfor %}
+{% endblock ogdesc %}
+{% block ogurl %}
+  {{ config.base_url ~ "/categories" | safe }}
+{% endblock ogurl %}
+{% block ogimage -%}
+  {%- if config.extra.ogimage -%}{{ get_url(path=config.extra.ogimage) | safe }}{%- endif -%}
+  {%- endblock ogimage %}
+  {% block content %}
+    <h1 class="page-title">
+      分类<sup>({{ terms | length }})</sup>
+    </h1>
+    <hr class="page-divider" />
+    <ul class="post-list">
+      {% for term in terms %}
+        <li>
+          <a href="{{ term.permalink | safe }}">{{ term.name }}<sup>({{ term.page_count }})</sup></a>
+          {# <time>({{term.page_count}})</time> #}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endblock content %}

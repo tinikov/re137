@@ -1,0 +1,6 @@
+{% macro post_in_list(post) %}
+  <li>
+    <a href="{{ post.permalink | safe }}">{{ post.title }}</a>
+    <time datetime="{{ post.date | date(format=" %+") }}">{{ post.date | date(format="%Y/%m/%d") }}</time>
+  </li>
+{% endmacro post_in_list %}

@@ -1,0 +1,112 @@
+{% extends "index.html" %}
+{# Change to this page's metadata #}
+{% block title %}
+  {{ page.title }} &middot; {{ config.title }}
+{% endblock title %}
+{% block description %}
+  {{ page.description | default(value=config.description) }}
+{% endblock description %}
+{% block ogtitle %}
+  {{ page.title }}
+{% endblock ogtitle %}
+{% block ogdesc %}
+  {{ page.description }}
+{% endblock ogdesc %}
+{% block ogurl %}
+  {{ page.permalink | safe }}
+{% endblock ogurl %}
+{% block ogimage -%}
+  {%- if page.extra.image -%}{{ get_url(path=page.extra.image) | safe }}
+  {%- elif config.extra.ogimage -%}{{ get_url(path=config.extra.ogimage) | safe }}
+  {%- else -%}{{ get_url(path="android-chrome-512x512.png") | safe }}
+  {%- endif -%}
+{%- endblock ogimage %}
+{% block content %}
+  {# title #}
+  <h1 class="page-title">
+    <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+  </h1>
+  {# front matter #}
+  <div class="page-front">
+    <div class="page-front-description">{{ page.description }}</div>
+    <hr class="page-divider" />
+    {# Dates #}
+    {% if page.date %}
+      <div class="page-front-date">
+        发布于 <time datetime="{{ page.date | date(format=" %+") }}">{{ page.date | date(format="%Y/%m/%d") }}</time>
+        {% if page.updated %}
+          <span id="page-front-date-raquo">&raquo;</span> 更新于 <time datetime="{{ page.updated | date(format=" %+") }}">{{ page.updated | date(format="%Y/%m/%d") }}</time>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <div>
+      {% set dot_gen = false %}
+      {% if page.extra.author_gen or page.extra.author_gen is undefined %}
+        {% set dot_gen = true %}
+        <span class="page-front-aux">作者是</span>
+        {% if page.authors %}
+          {% for author in page.authors %}
+            {{ author }}
+            {% if not loop.last %}<span class="page-front-aux">和</span>{% endif %}
+          {% endfor %}
+        {% else %}
+          {{ config.author }}
+        {% endif %}
+      {%- endif -%}
+      {# Generate category #}
+      {% if page.taxonomies.categories %}
+        {% if dot_gen %}<span class="page-front-dot">&middot;</span>{% endif %}
+        {% set dot_gen = true %}
+        <span class="page-front-aux">收录在</span>
+        {% for cat in page.taxonomies.categories %}
+          <a href="{{ get_taxonomy_url(kind="categories", name=cat) | safe }}">{{ cat }}</a>
+        {% endfor %}
+      {%- endif -%}
+      {# Table of contents #}
+      {% if page.extra.toc_gen %}
+        {% if dot_gen %}<span class="page-front-dot">&middot;</span>{% endif %}
+        <span class="page-front-aux">这里是</span>
+        <label for="toc-toggle" class="toc-button">目录</label>
+      {% endif %}
+      <input type="checkbox" id="toc-toggle">
+      <nav id="page-front-toc">
+        {% if page.toc %}
+          <ul>
+            {% for h1 in page.toc %}
+              <li>
+                <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+                {% if h1.children %}
+                  <ul>
+                    {% for h2 in h1.children %}
+                      <li>
+                        <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+  {# Main content #}
+  <article>{{ page.content | safe }}</article>
+  {# Footer #}
+  {%- if page.higher or page.lower -%}
+    <div class="page-foot">
+      <hr class="page-divider" />
+      {% if page.higher -%}
+        <div>
+          上一篇：<a rel="prev" href="{{ page.higher.permalink | safe }}">{{ page.higher.title }}</a>
+        </div>
+      {%- endif %}
+      {% if page.lower -%}
+        <div>
+          下一篇：<a rel="next" href="{{ page.lower.permalink | safe }}">{{ page.lower.title }}</a>
+        </div>
+      {%- endif %}
+    </div>
+  {%- endif -%}
+{% endblock content %}
