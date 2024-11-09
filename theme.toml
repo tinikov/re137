@@ -1,7 +1,7 @@
 name = "re137"
 description = "A minimal blog theme"
 license = "MIT"
-homepage = "https://blog.tinikov.com"
+homepage = "https://github.com/tinikov/re137"
 # The minimum version of Zola required
 min_version = "0.4.0"
 # An optional live demo URL
