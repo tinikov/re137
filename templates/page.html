@@ -31,9 +31,11 @@
     <div class="page-front-description">{{ page.description }}</div>
     <hr class="page-divider" />
     {# Dates #}
-    {% if page.date %}
+    {% if page.date or page.updated %}
       <div class="page-front-date">
-        发布于 <time datetime="{{ page.date | date(format=" %+") }}">{{ page.date | date(format="%Y/%m/%d") }}</time>
+        {% if page.date %}
+          发布于 <time datetime="{{ page.date | date(format=" %+") }}">{{ page.date | date(format="%Y/%m/%d") }}</time>
+        {%- endif -%}
         {% if page.updated %}
           <span id="page-front-date-raquo">&raquo;</span> 更新于 <time datetime="{{ page.updated | date(format=" %+") }}">{{ page.updated | date(format="%Y/%m/%d") }}</time>
         {%- endif -%}
