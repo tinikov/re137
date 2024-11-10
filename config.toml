@@ -1,11 +1,16 @@
-base_url = "https://blog.tinikov.com"
-title = "RE:137"
-description = "时间是唯一致死的毒药。"
+base_url = "https://re137.vercel.app"
+title = "Re137"
+description = "A Chinese friendly zola theme. Inspired by lightspeed."
 default_language = "zh-cn"
 compile_sass = true
 generate_feeds = true
 feed_filenames = ["rss.xml"]
-author = "季尼柯夫"
+author = "tinikov"
+
+# If used as theme, please uncomment this option
+# theme = "Re137"
+
+# To enable categories page
 taxonomies = [{ name = "categories" }]
 
 [slugify]
@@ -14,23 +19,35 @@ taxonomies = "safe"
 anchors = "safe"
 
 [extra]
-seo = true
-ogimage = "nagara_sq.jpg"
-google_search_console = "iXrh4pewdBSA1GlOHtTe_8IggFXgxgZujXKPikaS36M"
+# Image shown when you share this website to others
+# ogimage = " "
 
-indiewebring = true
-mastodon = "https://o3o.ca/@tinikov"
-github = "tinikov"
+# SEO settings
+# seo = true
+# google_search_console = " "
 
-establishdate = "2018"
+# Show jump buttons for Indiewebring
+# indiewebring = true
 
+# For authentication in mastodon
+# mastodon = "https://o3o.ca/@tinikov"
+
+# Only user name is needed
+# github = "tinikov"
+
+# Show establish date in the footer
+establishdate = "2024"
+
+# CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)
 license = true
 
-zola_theme = true
+# Show "🫧 Zola theme re137" in the footer
+show_zola_theme = true
 
-header_links = [
+# You can add your own items to list in the site navigator
+re137_menu_links = [
     { url = "$BASE_URL", name = "主页" },
-    { url = "$BASE_URL/categories", name = "分类" },
+    { url = "$BASE_URL/categories", name = "分类" }, # If enabled "taxonomies"
     { url = "$BASE_URL/about", name = "关于" },
     { url = "$BASE_URL/rss.xml", name = "RSS" },
 ]

@@ -1,13 +1,13 @@
-name = "re137"
-description = "A minimal blog theme"
+name = "Re137"
+description = "A Chinese friendly zola theme. Inspired by lightspeed."
 license = "MIT"
 homepage = "https://github.com/tinikov/re137"
 # The minimum version of Zola required
 min_version = "0.4.0"
 # An optional live demo URL
-demo = "https://blog.tinikov.com"
+demo = "https://re137.vercel.app"
 
 # The theme author info: you!
 [author]
 name = "tinikov"
-homepage = "https://blog.tinikov.com"
+homepage = "https://tinikov.com"

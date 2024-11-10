@@ -87,9 +87,9 @@
           </h1>
           <p class="header-site-description">{{ config.description }}</p>
           {# Page navigator in the head section #}
-          {% if config.extra.header_links %}
+          {% if config.extra.re137_menu_links %}
             <nav class="header-site-nav" role="navigation">
-              {% for item in config.extra.header_links %}
+              {% for item in config.extra.re137_menu_links %}
                 <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}">{{ item.name }}</a>
                 {% if loop.last %}
                 {% else %}
@@ -123,12 +123,20 @@
       <footer class="site-footer" role="contentinfo">
         {% block footer %}
           <div>
-            {{ config.extra.establishdate }}-{{ now() | date(format="%Y") }} {{ config.author }}
-            {% if config.extra.license %}
-              <span>&copy;</span> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
+            {% if config.extra.establishdate %}
+              {% if config.extra.establishdate == now() | date(format="%Y") %}
+                {{ now() | date(format="%Y") }} <span>&copy;</span> {{ config.author }}
+              {% else %}
+                {{ config.extra.establishdate }}-{{ now() | date(format="%Y") }} <span>&copy;</span> {{ config.author }}
+              {% endif %}
+            {% else %}
+              <span>&copy;</span> {{ config.author }}
             {% endif %}
-            {% if config.extra.zola_theme %}
-              🫧 <a href="https://www.getzola.org">Zola</a> theme RE:137
+            {% if config.extra.license %}
+              <span id="page-front-date-raquo">&laquo;</span> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
+            {% endif %}
+            {% if config.extra.show_zola_theme %}
+              🫧 <a href="https://www.getzola.org">Zola</a> theme <b><a href="https://github.com/tinikov/re137">re137</a></b>
             {% endif %}
           </div>
           {% if config.extra.indiewebring %}
