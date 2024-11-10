@@ -27,7 +27,7 @@ anchors = "safe"
 # google_search_console = " "
 
 # Show jump buttons for Indiewebring
-# indiewebring = true
+indiewebring = true
 
 # For authentication in mastodon
 # mastodon = "https://o3o.ca/@tinikov"
@@ -41,7 +41,7 @@ establishdate = "2024"
 # CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)
 license = true
 
-# Show "🫧 Zola theme re137" in the footer
+# Show "Zola &laquo; re137" in the footer
 show_zola_theme = true
 
 # You can add your own items to list in the site navigator
