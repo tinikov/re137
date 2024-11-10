@@ -1,4 +1,4 @@
-# Re137
+# re137
 
 ![screenshot](screenshot.png)
 
@@ -23,7 +23,7 @@ git submodule add git@github.com:tinikov/re137
 Then enable it in your `config.toml`:
 
 ```toml
-theme = "Re137"
+theme = "re137"
 ```
 
 ## Structure and must configs
