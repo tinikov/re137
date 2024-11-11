@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 {# Change to this page's metadata #}
 {% block title %}
-  {{ page.title }} &middot; {{ config.title }}
+  {{ page.title }} · {{ config.title }}
 {% endblock title %}
 {% block description %}
   {{ page.description | default(value=config.description) }}
@@ -37,7 +37,7 @@
           发布于 <time datetime="{{ page.date | date(format=" %+") }}">{{ page.date | date(format="%Y/%m/%d") }}</time>
         {%- endif -%}
         {% if page.updated %}
-          <span id="page-front-date-raquo">&raquo;</span> 更新于 <time datetime="{{ page.updated | date(format=" %+") }}">{{ page.updated | date(format="%Y/%m/%d") }}</time>
+          <span class="re137-aquo">»</span> 更新于 <time datetime="{{ page.updated | date(format=" %+") }}">{{ page.updated | date(format="%Y/%m/%d") }}</time>
         {%- endif -%}
       </div>
     {%- endif -%}

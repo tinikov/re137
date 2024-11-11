@@ -2,6 +2,7 @@
 title = "Hello World!"
 date = 2000-01-01T00:00:00+00:00
 description = "Sample post."
+authors = ["Hello", "World"]
 [taxonomies]
 categories = ["samples"]
 +++

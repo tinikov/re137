@@ -93,7 +93,7 @@
                 <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}">{{ item.name }}</a>
                 {% if loop.last %}
                 {% else %}
-                  <span>&middot;</span>
+                  <span>·</span>
                 {% endif %}
               {% endfor %}
             </nav>
@@ -126,20 +126,20 @@
             <div>
               {% if config.extra.establishdate %}
                 {% if config.extra.establishdate == now() | date(format="%Y") %}
-                  {{ now() | date(format="%Y") }} <span>&copy;</span> {{ config.author }}
+                  {{ now() | date(format="%Y") }} <span>©</span> {{ config.author }}
                 {% else %}
-                  {{ config.extra.establishdate }}-{{ now() | date(format="%Y") }} <span>&copy;</span> {{ config.author }}
+                  {{ config.extra.establishdate }}-{{ now() | date(format="%Y") }} <span>©</span> {{ config.author }}
                 {% endif %}
               {% else %}
-                <span>&copy;</span> {{ config.author }}
+                <span>©</span> {{ config.author }}
               {% endif %}
               {% if config.extra.license %}
-                <span id="page-front-date-aquo">&laquo;</span> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
+                <span class="re137-aquo">«</span> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
               {% endif %}
             </div>
             <div>
               {% if config.extra.show_zola_theme %}
-                <a href="https://www.getzola.org">Zola</a> <span id="page-front-date-raquo">&raquo;</span> <b><a href="https://github.com/tinikov/re137">re137</a></b>
+                <a href="https://www.getzola.org">Zola</a> <span class="re137-aquo">»</span> <b><a href="https://github.com/tinikov/re137">re137</a></b>
               {% endif %}
             </div>
           </div>
