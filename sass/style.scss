@@ -141,7 +141,33 @@ ol {
 }
 
 .header-site-nav {
-	font-size: 0.8rem;
+	font-size: 0.85rem;
+	align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.header-site-rss-href {
+	text-decoration: unset;
+	text-underline-offset: unset;
+}
+
+.header-site-rss-href:hover {
+	color: $text-color
+}
+
+.header-site-rss-img {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	height: 1.25rem;
+}
+
+.header-site-rss-icon-text {
+	vertical-align: sub;
+	font-size: 0.7rem;
+	margin-left: -0.05rem;
 }
 
 .content {

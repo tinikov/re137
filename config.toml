@@ -5,6 +5,7 @@ default_language = "zh-cn"
 compile_sass = true
 generate_feeds = true
 feed_filenames = ["rss.xml"]
+# feed_filenames = ["rss.xml", "atom.xml"]
 author = "tinikov"
 
 # If used as theme, please uncomment this option
@@ -49,5 +50,4 @@ re137_menu_links = [
     { url = "$BASE_URL", name = "Home 主页" },
     { url = "$BASE_URL/categories", name = "Categories 分类" }, # If enabled "taxonomies"
     { url = "$BASE_URL/about", name = "About 关于" },
-    { url = "$BASE_URL/rss.xml", name = "RSS 订阅" },
 ]
