@@ -4,8 +4,8 @@ description = "A Chinese friendly zola theme. Inspired by lightspeed. 重回 200
 default_language = "zh-cn"
 compile_sass = true
 generate_feeds = true
-feed_filenames = ["rss.xml"]
-# feed_filenames = ["rss.xml", "atom.xml"]
+# feed_filenames = ["rss.xml"]
+feed_filenames = ["rss.xml", "atom.xml"]
 author = "tinikov"
 
 # If used as theme, please uncomment this option
