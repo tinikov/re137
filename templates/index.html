@@ -91,9 +91,14 @@
           </h1>
           <p class="header-site-description">{{ config.description }}</p>
           {# Page navigator in the head section #}
-          {% if config.extra.re137_menu_links or config.generate_feeds %}
+          {% set menu_bar = config.extra.re137_menu_links %}
+          {% set mastodon_icon = config.extra.mastodon and config.extra.show_mastodon_icon %}
+          {% set github_icon = config.extra.github and config.extra.show_github_icon %}
+          {% set feeds_icon = config.generate_feeds %}
+          {% set icon_gen = mastodon_icon or github_icon or feeds_icon %}
+          {% if menu_bar or icon_gen %}
             <nav class="header-site-nav" role="navigation">
-              {% if config.extra.re137_menu_links %}
+              {% if menu_bar %}
                 <div>
                   {% for item in config.extra.re137_menu_links %}
                     <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}">{{ item.name }}</a>
@@ -104,20 +109,38 @@
                   {% endfor %}
                 </div>
               {% endif %}
-              {% if config.generate_feeds %}
+              {% if icon_gen %}
                 <div>
-                  {% if config.feed_filenames | length < 2 %}
-                    <a class="header-site-rss-href"
-                       href="{{ config.base_url ~ "/" ~ config.feed_filenames[0] | safe }}">
-                      <img class="header-site-rss-img" src="/rss-svgrepo-com.svg" alt="RSS">
+                  {% if mastodon_icon %}
+                    <a class="header-site-icon-href"
+                       href="{{ "https://github.com/" ~ config.extra.github | safe }}">
+                      <img class="header-site-icon"
+                           src="/mastodon-svgrepo-com.svg"
+                           alt="RSS">
                     </a>
-                  {% else %}
-                    {%- for item in config.feed_filenames -%}
-                      <a class="header-site-rss-href"
-                         href="{{ config.base_url ~ "/" ~ item | safe }}">
-                        <img class="header-site-rss-img" src="/rss-svgrepo-com.svg" alt="RSS">
-                        <span class="header-site-rss-icon-text">{{ item | trim_end_matches(pat=".xml") -}}</span></a>
-                    {%- endfor -%}
+                  {% endif %}
+                  {% if github_icon %}
+                    <a class="header-site-icon-href"
+                       href="{{ "https://github.com/" ~ config.extra.github | safe }}">
+                      <img class="header-site-icon"
+                           src="/github-svgrepo-com.svg"
+                           alt="RSS">
+                    </a>
+                  {% endif %}
+                  {% if feeds_icon %}
+                    {% if config.feed_filenames | length < 2 %}
+                      <a class="header-site-icon-href"
+                         href="{{ config.base_url ~ "/" ~ config.feed_filenames[0] | safe }}">
+                        <img class="header-site-icon" src="/rss-svgrepo-com.svg" alt="RSS">
+                      </a>
+                    {% else %}
+                      {%- for item in config.feed_filenames -%}
+                        <a class="header-site-icon-href"
+                           href="{{ config.base_url ~ "/" ~ item | safe }}">
+                          <img class="header-site-icon" src="/rss-svgrepo-com.svg" alt="RSS">
+                          <span class="header-site-rss-text">{{ item | trim_end_matches(pat=".xml") -}}</span></a>
+                      {%- endfor -%}
+                    {% endif %}
                   {% endif %}
                 </div>
               {% endif %}
@@ -147,7 +170,7 @@
       </div>
       <footer class="site-footer" role="contentinfo">
         {% block footer %}
-          <div>
+          <div class="site-footer-meta">
             <div>
               {% if config.extra.establishdate %}
                 {% if config.extra.establishdate == now() | date(format="%Y") %}
@@ -168,9 +191,16 @@
               {% endif %}
             </div>
           </div>
-          {% if config.extra.indiewebring %}
-            <div>
-              <a href="https://xn--sr8hvo.ws/previous">←</a> &nbsp; <a href="https://xn--sr8hvo.ws/">🕸💍</a> &nbsp; <a href="https://xn--sr8hvo.ws/next">→</a>
+          <div class="site-footer-webring">
+            {% if config.extra.indiewebring %}
+              <div>
+                <a href="https://xn--sr8hvo.ws/previous">←</a> &nbsp; <a href="https://xn--sr8hvo.ws/">IndieWebRing</a> &nbsp; <a href="https://xn--sr8hvo.ws/next">→</a>
+              </div>
+            {% endif %}
+            {% if config.extra.fediring %}
+              <div>
+                <a href="https://fediring.net/previous?host={{ config.base_url | safe }}">←</a> &nbsp; <a href="https://fediring.net">FediRing</a> &nbsp; <a href="https://fediring.net/next?host={{ config.base_url | safe }}">→</a>
+              </div>
             </div>
           {% endif %}
         {% endblock footer %}

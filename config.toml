@@ -27,14 +27,19 @@ anchors = "safe"
 # seo = true
 # google_search_console = " "
 
-# Show jump buttons for Indiewebring
+# Set up Indiewebring
 indiewebring = true
 
+# Set up Fediring
+fediring = true
+
 # For authentication in mastodon
-# mastodon = "https://o3o.ca/@tinikov"
+mastodon = "https://o3o.ca/@tinikov"
+show_mastodon_icon = true
 
 # Only user name is needed
-# github = "tinikov"
+github = "tinikov/re137"
+show_github_icon = true
 
 # Show establish date in the footer
 establishdate = "2024"

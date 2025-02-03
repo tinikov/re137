@@ -148,26 +148,28 @@ ol {
 	justify-content: space-between;
 }
 
-.header-site-rss-href {
+.header-site-icon-href {
 	text-decoration: unset;
 	text-underline-offset: unset;
 }
 
-.header-site-rss-href:hover {
-	color: $text-color
+.header-site-icon-href:hover {
+	color: $text-color;
 }
 
-.header-site-rss-img {
+.header-site-icon {
 	display: inline-block;
 	vertical-align: middle;
-	margin: 0;
-	height: 1.25rem;
+	margin-left: 0.1rem;
+	height: 1rem;
 }
 
-.header-site-rss-icon-text {
+.header-site-rss-text {
 	vertical-align: sub;
 	font-size: 0.7rem;
-	margin-left: -0.05rem;
+	font-family: $mono-fonts;
+	letter-spacing: -0.04rem;
+	margin-left: -0.07rem;
 }
 
 .content {
@@ -218,6 +220,22 @@ ol {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+}
+
+.site-footer-meta {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.site-footer-webring {
+	margin-top: 0.1rem;
+	font-size: smaller;
+	display: flex;
+	// justify-content: center;
+	align-items: flex-end;
+	flex-direction: column;
+	// gap: 0.1rem;
 }
 
 // Single page
