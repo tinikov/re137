@@ -113,7 +113,7 @@
                 <div>
                   {% if mastodon_icon %}
                     <a class="header-site-icon-href"
-                       href="{{ "https://github.com/" ~ config.extra.github | safe }}">
+                       href="{{ config.extra.mastodon | safe }}">
                       <img class="header-site-icon" src="/mastodon-svgrepo-com.svg" alt="RSS">
                     </a>
                   {% endif %}
