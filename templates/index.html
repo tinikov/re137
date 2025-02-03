@@ -190,19 +190,27 @@
           <div class="site-footer-webring">
             {% if config.extra.indiewebring %}
               <div>
-                <a href="https://xn--sr8hvo.ws/previous"><img class="re137-arrow" src="/left-arrow-svgrepo-com.svg"></a><a href="https://xn--sr8hvo.ws/"><span class="site-footer-webring-text">Indie💍</span></a><a href="https://xn--sr8hvo.ws/next"><img class="re137-arrow" src="/right-arrow-svgrepo-com.svg"></a>
-              </div>
-            {% endif %}
-            {% if config.extra.fediring %}
-              <div>
-                <a href="https://fediring.net/previous?host={{ config.base_url | safe }}"><img class="re137-arrow" src="/left-arrow-svgrepo-com.svg"></a><a href="https://fediring.net"><span class="site-footer-webring-text">Fedi💍</span></a><a href="https://fediring.net/next?host={{ config.base_url | safe }}"><img class="re137-arrow" src="/right-arrow-svgrepo-com.svg"></a>
-              </div>
+                <a href="https://xn--sr8hvo.ws/previous">
+                  <img class="re137-arrow" src="/left-arrow-svgrepo-com.svg">
+                </a><a href="https://xn--sr8hvo.ws/"><span class="site-footer-webring-text">Indie💍</span></a><a href="https://xn--sr8hvo.ws/next">
+                <img class="re137-arrow" src="/right-arrow-svgrepo-com.svg">
+              </a>
             </div>
           {% endif %}
-        {% endblock footer %}
-      </footer>
-    </main>
-    {% block after_main %}
-    {% endblock after_main %}
-  </body>
+          {% if config.extra.fediring %}
+            <div>
+              <a href="https://fediring.net/previous?host={{ config.base_url | safe }}">
+                <img class="re137-arrow" src="/left-arrow-svgrepo-com.svg">
+              </a><a href="https://fediring.net"><span class="site-footer-webring-text">Fedi💍</span></a><a href="https://fediring.net/next?host={{ config.base_url | safe }}">
+              <img class="re137-arrow" src="/right-arrow-svgrepo-com.svg">
+            </a>
+          </div>
+        </div>
+      {% endif %}
+    {% endblock footer %}
+  </footer>
+</main>
+{% block after_main %}
+{% endblock after_main %}
+</body>
 </html>
