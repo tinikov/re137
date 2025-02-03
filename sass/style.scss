@@ -122,6 +122,12 @@ ol {
 	vertical-align: 1px;
 }
 
+.re137-arrow {
+	display: inline-block;
+	vertical-align: middle;
+	height: 0.6rem;
+}
+
 // Homepage
 .header-site-title {
 	margin-top: 0;
@@ -216,8 +222,8 @@ ol {
 
 .site-footer {
 	font-size: smaller;
-	align-items: flex-start;
 	display: flex;
+	align-items: flex-start;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
@@ -229,13 +235,22 @@ ol {
 }
 
 .site-footer-webring {
-	margin-top: 0.1rem;
-	font-size: smaller;
 	display: flex;
-	// justify-content: center;
+	justify-content: center;
 	align-items: flex-end;
 	flex-direction: column;
-	// gap: 0.1rem;
+}
+
+.site-footer-webring a {
+	text-decoration: none;
+}
+
+.site-footer-webring-text {
+	text-align: center;
+	font-size: smaller;
+	vertical-align: middle;
+	margin-left: 8px;
+	margin-right: 8px;
 }
 
 // Single page

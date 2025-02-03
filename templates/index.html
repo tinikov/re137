@@ -114,17 +114,13 @@
                   {% if mastodon_icon %}
                     <a class="header-site-icon-href"
                        href="{{ "https://github.com/" ~ config.extra.github | safe }}">
-                      <img class="header-site-icon"
-                           src="/mastodon-svgrepo-com.svg"
-                           alt="RSS">
+                      <img class="header-site-icon" src="/mastodon-svgrepo-com.svg" alt="RSS">
                     </a>
                   {% endif %}
                   {% if github_icon %}
                     <a class="header-site-icon-href"
                        href="{{ "https://github.com/" ~ config.extra.github | safe }}">
-                      <img class="header-site-icon"
-                           src="/github-svgrepo-com.svg"
-                           alt="RSS">
+                      <img class="header-site-icon" src="/github-svgrepo-com.svg" alt="RSS">
                     </a>
                   {% endif %}
                   {% if feeds_icon %}
@@ -194,12 +190,12 @@
           <div class="site-footer-webring">
             {% if config.extra.indiewebring %}
               <div>
-                <a href="https://xn--sr8hvo.ws/previous">←</a> &nbsp; <a href="https://xn--sr8hvo.ws/">IndieWebRing</a> &nbsp; <a href="https://xn--sr8hvo.ws/next">→</a>
+                <a href="https://xn--sr8hvo.ws/previous"><img class="re137-arrow" src="/left-arrow-svgrepo-com.svg"></a><a href="https://xn--sr8hvo.ws/"><span class="site-footer-webring-text">Indie💍</span></a><a href="https://xn--sr8hvo.ws/next"><img class="re137-arrow" src="/right-arrow-svgrepo-com.svg"></a>
               </div>
             {% endif %}
             {% if config.extra.fediring %}
               <div>
-                <a href="https://fediring.net/previous?host={{ config.base_url | safe }}">←</a> &nbsp; <a href="https://fediring.net">FediRing</a> &nbsp; <a href="https://fediring.net/next?host={{ config.base_url | safe }}">→</a>
+                <a href="https://fediring.net/previous?host={{ config.base_url | safe }}"><img class="re137-arrow" src="/left-arrow-svgrepo-com.svg"></a><a href="https://fediring.net"><span class="site-footer-webring-text">Fedi💍</span></a><a href="https://fediring.net/next?host={{ config.base_url | safe }}"><img class="re137-arrow" src="/right-arrow-svgrepo-com.svg"></a>
               </div>
             </div>
           {% endif %}
