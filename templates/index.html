@@ -199,9 +199,9 @@
           {% endif %}
           {% if config.extra.fediring %}
             <div>
-              <a href="https://fediring.net/previous?host={{ config.base_url | safe }}">
+              <a href="https://fediring.net/previous?host={{ config.base_url | safe | replace(from="https://", to="") | replace(from="http://", to="") }} ">
                 <img class="re137-arrow" src="/left-arrow-svgrepo-com.svg">
-              </a><a href="https://fediring.net"><span class="site-footer-webring-text">Fedi💍</span></a><a href="https://fediring.net/next?host={{ config.base_url | safe }}">
+              </a><a href="https://fediring.net"><span class="site-footer-webring-text">Fedi💍</span></a><a href="https://fediring.net/next?host={{ config.base_url | safe | replace(from="https://", to="") | replace(from="http://", to="") }} ">
               <img class="re137-arrow" src="/right-arrow-svgrepo-com.svg">
             </a>
           </div>
