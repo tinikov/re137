@@ -87,7 +87,7 @@
       {% block header %}
         <header role="banner">
           <h1 class="header-site-title">
-            <a href="{{ config.base_url | safe }}" title="Home">{{ config.title }}</a>
+            <a href="{{ config.base_url | safe }}" title="{{ config.title }}">{{ config.title }}</a>
           </h1>
           <p class="header-site-description">{{ config.description }}</p>
           {# Page navigator in the head section #}
@@ -101,7 +101,8 @@
               {% if menu_bar %}
                 <div>
                   {% for item in config.extra.re137_menu_links %}
-                    <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}">{{ item.name }}</a>
+                    <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}"
+                       title="{{ item.name }}">{{ item.name }}</a>
                     {% if loop.last %}
                     {% else %}
                       <span>·</span>
@@ -168,24 +169,25 @@
         {% block footer %}
           <div class="site-footer-meta">
             <div>
+              <a href="{{ config.base_url | safe }}">{{ config.title }}</a> by <b>{{ config.author }}</b>
               {% if config.extra.establishdate %}
                 {% if config.extra.establishdate == now() | date(format="%Y") %}
-                  {{ now() | date(format="%Y") }} <span>©</span> {{ config.author }}
+                  <span>©</span> {{ now() | date(format="%Y") }}
                 {% else %}
-                  {{ config.extra.establishdate }}-{{ now() | date(format="%Y") }} <span>©</span> {{ config.author }}
+                  <span>©</span>{{ config.extra.establishdate }}-{{ now() | date(format="%Y") }}
                 {% endif %}
-              {% else %}
-                <span>©</span> {{ config.author }}
-              {% endif %}
-              {% if config.extra.license %}
-                <span class="re137-aquo">«</span> <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
               {% endif %}
             </div>
-            <div>
-              {% if config.extra.show_zola_theme %}
+            {% if config.extra.license %}
+              <div>
+                Licensed under <a href="{{ config.extra.license_canonical_url | safe }}">{{ config.extra.license_type }}</a>
+              </div>
+            {% endif %}
+            {% if config.extra.show_zola_theme %}
+              <div>
                 <a href="https://www.getzola.org">Zola</a> <span class="re137-aquo">»</span> <b><a href="https://github.com/tinikov/re137">re137</a></b>
-              {% endif %}
-            </div>
+              </div>
+            {% endif %}
           </div>
           <div class="site-footer-webring">
             {% if config.extra.indiewebring %}

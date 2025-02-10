@@ -44,8 +44,12 @@ show_github_icon = true
 # Show establish date in the footer
 establishdate = "2024"
 
-# CC BY-NC 4.0 (https://creativecommons.org/licenses/by-nc/4.0/)
+# license
 license = true
+# license_type = "CC BY-NC 4.0"
+license_type = "CC BY-NC-ND 4.0"
+# license_canonical_url = "https://creativecommons.org/licenses/by-nc/4.0/"
+license_canonical_url = "https://creativecommons.org/licenses/by-nc-nd/4.0/"
 
 # Show "Zola &laquo; re137" in the footer
 show_zola_theme = true
